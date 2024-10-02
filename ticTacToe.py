@@ -73,23 +73,14 @@ boardPosition(gameBoard, "X", 8)
             
         
 def playerChoice(board):
-    acceptablevalues2 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    acceptablevalues = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     boardPosition = 0
 
-    while boardPosition == 0:
-            space = input("What position would you like to put your marker in (1-9)?: ")
-
-            if space in acceptablevalues2:              
-                boardPosition = int(space)
-                
-                if emptySpaceCheck(board, boardPosition):
-                    return boardPosition            
-                else:
-                    print("This spot is already occupied")
-            else:
-                print("Please enter a valid value")
-            
+    while boardPosition not in acceptablevalues or not emptySpaceCheck(board, boardPosition):
+        boardPosition = int(input("Choose your next position: (1-9) "))
+    
     return boardPosition
+
     
                             
             
