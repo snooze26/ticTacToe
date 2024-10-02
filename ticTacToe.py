@@ -40,12 +40,37 @@ def winner(board, mark):
      (board[2] == mark and board[5] == mark and board[8] == mark) #down the middle
     )
 
-boardPosition(gameBoard, "X", 8)
-boardPosition(gameBoard, "X", 5)
-boardPosition(gameBoard, "X", 2)
+import random
+def pickPlayer():
+    if random.randint(0,1) == 0:
+        return "Player 1"
+    else: 
+        return "Player 2"
+    
+def emptySpaceCheck(board, position):
+    return board[position] == " "
 
-displayBoard(gameBoard)
-print(winner(gameBoard, "X"))
+def fullBoardCheck(board):
+    for space in range(1,10):
+        if emptySpaceCheck(board, space):
+            return False
+    return True
+            
+
+
+boardPosition(gameBoard, "X", 1)
+boardPosition(gameBoard, "X", 2)
+boardPosition(gameBoard, "X", 3)
+boardPosition(gameBoard, "X", 4)
+boardPosition(gameBoard, "X", 5)
+boardPosition(gameBoard, "X", 6)
+boardPosition(gameBoard, "X", 7)
+boardPosition(gameBoard, "X", 8)
+boardPosition(gameBoard, "X", 9)
+# pickPlayer()
+# displayBoard(gameBoard)
+# print(winner(gameBoard, "X"))
+print(fullBoardCheck(gameBoard))
             
         
         
