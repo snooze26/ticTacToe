@@ -1,13 +1,10 @@
-def display(row1,row2,row3):
-    print(row1)
-    print(row2)
-    print(row3)
+gameBoard = [" ", " ", " ", " ", " ", " ", " ", " ", " ", " "]
 
-exampleRow = [1,2,3]
-row1 = ["", "", ""]
-row2 = ["", "", ""]
-row3 = ["", "", ""]
-
-row2[1] = "X"
-
-display(row1,row2,row3)
+def displayBoard(board):
+    
+    print(gameBoard[7] + "|" + gameBoard[8] + "|" + gameBoard[9])
+    print(gameBoard[4] + "|" + gameBoard[5] + "|" + gameBoard[6])
+    print(gameBoard[1] + "|" + gameBoard[2] + "|" + gameBoard[3])
+    
+    
+displayBoard(gameBoard)
