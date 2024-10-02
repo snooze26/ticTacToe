@@ -24,12 +24,28 @@ def playerInput():
     
     return (player1, player2)
 
-    
-player1Marker, player2Marker = playerInput()
+def boardPosition(board, marker, position):
+    board[position] = marker
 
-# print(player1Marker)
-# print(player2Marker)
 
-        
+
+def winner(board, mark):
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or ##top row
+     (board[4] == mark and board[5] == mark and board[6] == mark) or # middle row
+     (board[1] == mark and board[2] == mark and board[3] == mark) or # bottom row
+     (board[1] == mark and board[5] == mark and board[9] == mark) or #diag bottom left to top right
+     (board[3] == mark and board[5] == mark and board[7] == mark) or #diag bottom right to top left
+     (board[3] == mark and board[6] == mark and board[9] == mark) or #down the right side
+     (board[1] == mark and board[4] == mark and board[7] == mark) or #down the left side
+     (board[2] == mark and board[5] == mark and board[8] == mark) #down the middle
+    )
+
+boardPosition(gameBoard, "X", 8)
+boardPosition(gameBoard, "X", 5)
+boardPosition(gameBoard, "X", 2)
+
+displayBoard(gameBoard)
+print(winner(gameBoard, "X"))
+            
         
         
