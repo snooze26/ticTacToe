@@ -1,5 +1,6 @@
 gameBoard = [" "]*10
 
+
 def displayBoard(board):
     
     print(gameBoard[7] + "|" + gameBoard[8] + "|" + gameBoard[9])
@@ -55,22 +56,52 @@ def fullBoardCheck(board):
         if emptySpaceCheck(board, space):
             return False
     return True
-            
 
 
-boardPosition(gameBoard, "X", 1)
-boardPosition(gameBoard, "X", 2)
-boardPosition(gameBoard, "X", 3)
-boardPosition(gameBoard, "X", 4)
-boardPosition(gameBoard, "X", 5)
-boardPosition(gameBoard, "X", 6)
-boardPosition(gameBoard, "X", 7)
+# boardPosition(gameBoard, "X", 1)
+# boardPosition(gameBoard, "X", 2)
+# boardPosition(gameBoard, "X", 3)
+# boardPosition(gameBoard, "X", 4)
+# boardPosition(gameBoard, "X", 5)
+# boardPosition(gameBoard, "X", 6)
+# boardPosition(gameBoard, "X", 7)
 boardPosition(gameBoard, "X", 8)
-boardPosition(gameBoard, "X", 9)
+# boardPosition(gameBoard, "X", 9)
 # pickPlayer()
 # displayBoard(gameBoard)
 # print(winner(gameBoard, "X"))
-print(fullBoardCheck(gameBoard))
             
         
-        
+def playerChoice(board):
+    acceptablevalues2 = ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+    boardPosition = 0
+
+    while boardPosition == 0:
+            space = input("What position would you like to put your marker in (1-9)?: ")
+
+            if space in acceptablevalues2:              
+                boardPosition = int(space)
+                
+                if emptySpaceCheck(board, boardPosition):
+                    return boardPosition            
+                else:
+                    print("This spot is already occupied")
+            else:
+                print("Please enter a valid value")
+            
+    return boardPosition
+    
+                            
+            
+            # if type(boardposition) == int:
+            #     if boardPosition in acceptablevalues:
+            #         return boardPosition
+            # else: "Please enter a valid "
+            
+            # if type(boardposition) == int and boardPosition in acceptablevalues:
+            #     emptySpaceCheck(board, boardposition)
+            #     return True
+            # else: 
+            #     return "Please enter a value between 1 and 9"
+            
+playerChoice(gameBoard)
