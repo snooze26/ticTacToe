@@ -26,17 +26,6 @@ def playerInput():
 def boardPosition(board, marker, position):
     board[position] = marker
 
-def winner(board, mark):
-    return ((board[7] == mark and board[8] == mark and board[9] == mark) or ##top row
-     (board[4] == mark and board[5] == mark and board[6] == mark) or # middle row
-     (board[1] == mark and board[2] == mark and board[3] == mark) or # bottom row
-     (board[1] == mark and board[5] == mark and board[9] == mark) or #diag bottom left to top right
-     (board[3] == mark and board[5] == mark and board[7] == mark) or #diag bottom right to top left
-     (board[3] == mark and board[6] == mark and board[9] == mark) or #down the right side
-     (board[1] == mark and board[4] == mark and board[7] == mark) or #down the left side
-     (board[2] == mark and board[5] == mark and board[8] == mark) #down the middle
-    )
-
 import random
 def pickPlayer():
     if random.randint(0,1) == 0:
@@ -62,6 +51,18 @@ def playerChoice(board):
     
     return boardPosition
 
+def winner(board, mark):
+    return ((board[7] == mark and board[8] == mark and board[9] == mark) or ##top row
+     (board[4] == mark and board[5] == mark and board[6] == mark) or # middle row
+     (board[1] == mark and board[2] == mark and board[3] == mark) or # bottom row
+     (board[1] == mark and board[5] == mark and board[9] == mark) or #diag bottom left to top right
+     (board[3] == mark and board[5] == mark and board[7] == mark) or #diag bottom right to top left
+     (board[3] == mark and board[6] == mark and board[9] == mark) or #down the right side
+     (board[1] == mark and board[4] == mark and board[7] == mark) or #down the left side
+     (board[2] == mark and board[5] == mark and board[8] == mark) #down the middle
+    )
+
+
 def replay():
     bool = False
     choice = "wrong"
@@ -79,12 +80,29 @@ def replay():
     
 def runGame():
 
+    
+    
     print("Welcome to Tic Tac Toe!")
 
     while True:
-        gameBoardReset = [" "]*10            
-        print(gameBoardReset)
-        pickPlayer()
+                
+        p1 = pickPlayer()
+        p2 = ""
+        
+        if p1 == "Player 1":
+            p2 = "Player 2"
+        else:
+            p2 = "Player 1"
+        
+        
+        break
+        
+        
+        # gameBoardReset = [" "]*10            
+        # print(gameBoardReset)
+        
+        # playerInput()
+        # pickPlayer()
 
 
 runGame()
