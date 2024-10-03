@@ -57,6 +57,15 @@ def fullBoardCheck(board):
             return False
     return True
 
+def playerChoice(board):
+    acceptablevalues = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    boardPosition = 0
+
+    while boardPosition not in acceptablevalues or not emptySpaceCheck(board, boardPosition):
+        boardPosition = int(input("Choose your next position: (1-9) "))
+    
+    return boardPosition
+
 
 # boardPosition(gameBoard, "X", 1)
 # boardPosition(gameBoard, "X", 2)
@@ -67,32 +76,21 @@ def fullBoardCheck(board):
 # boardPosition(gameBoard, "X", 7)
 boardPosition(gameBoard, "X", 8)
 # boardPosition(gameBoard, "X", 9)
-# pickPlayer()
-# displayBoard(gameBoard)
-# print(winner(gameBoard, "X"))
-            
+
+
+def replay():
+    bool = False
+    choice = "wrong"
+    
+    while choice not in ["Y", "N"]:
+        choice = input("Do you want to keep playing? ").upper()
         
-def playerChoice(board):
-    acceptablevalues = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    boardPosition = 0
-
-    while boardPosition not in acceptablevalues or not emptySpaceCheck(board, boardPosition):
-        boardPosition = int(input("Choose your next position: (1-9) "))
+        if choice not in ["Y", "N"]:
+             print("Sorry, please choose Y or N")
+        
+    if choice == "Y":
+        return True
+    else:
+        return False
     
-    return boardPosition
-
-    
-                            
             
-            # if type(boardposition) == int:
-            #     if boardPosition in acceptablevalues:
-            #         return boardPosition
-            # else: "Please enter a valid "
-            
-            # if type(boardposition) == int and boardPosition in acceptablevalues:
-            #     emptySpaceCheck(board, boardposition)
-            #     return True
-            # else: 
-            #     return "Please enter a value between 1 and 9"
-            
-playerChoice(gameBoard)
