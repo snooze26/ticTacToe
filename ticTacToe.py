@@ -94,6 +94,9 @@ def runGame():
         else:
             p2 = "Player 1"
         
+        playerInput()
+        
+        
         
         break
         
