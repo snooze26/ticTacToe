@@ -1,13 +1,11 @@
-gameBoard = [" "]*10
+gameBoard = [" "]*10            
 
 
 def displayBoard(board):
-    
     print(gameBoard[7] + "|" + gameBoard[8] + "|" + gameBoard[9])
     print(gameBoard[4] + "|" + gameBoard[5] + "|" + gameBoard[6])
     print(gameBoard[1] + "|" + gameBoard[2] + "|" + gameBoard[3])
     
-
 def playerInput():
     acceptableValues = ["X", "O"]
     
@@ -27,8 +25,6 @@ def playerInput():
 
 def boardPosition(board, marker, position):
     board[position] = marker
-
-
 
 def winner(board, mark):
     return ((board[7] == mark and board[8] == mark and board[9] == mark) or ##top row
@@ -66,18 +62,6 @@ def playerChoice(board):
     
     return boardPosition
 
-
-# boardPosition(gameBoard, "X", 1)
-# boardPosition(gameBoard, "X", 2)
-# boardPosition(gameBoard, "X", 3)
-# boardPosition(gameBoard, "X", 4)
-# boardPosition(gameBoard, "X", 5)
-# boardPosition(gameBoard, "X", 6)
-# boardPosition(gameBoard, "X", 7)
-boardPosition(gameBoard, "X", 8)
-# boardPosition(gameBoard, "X", 9)
-
-
 def replay():
     bool = False
     choice = "wrong"
@@ -93,4 +77,14 @@ def replay():
     else:
         return False
     
-            
+def runGame():
+
+    print("Welcome to Tic Tac Toe!")
+
+    while True:
+        gameBoardReset = [" "]*10            
+        print(gameBoardReset)
+        pickPlayer()
+
+
+runGame()
