@@ -12,7 +12,7 @@ def playerInput():
     marker = ""
     
     while marker not in acceptableValues:
-        marker = input("Player 1 turn, choose X or O: ")
+        marker = input("Player 1 choose X or O: ").upper()
 
     player1 = marker
     
@@ -84,17 +84,55 @@ def runGame():
     
     print("Welcome to Tic Tac Toe!")
 
-    while True:
+    while True:        
+        p1marker, p2marker = playerInput()
+        print(p1marker, p2marker)      
+        
+        turn = pickPlayer()
+        print(f"{turn} will go first")
+        
+        gameOn = True
+        
+        while gameOn:
+            if turn == "Player 1":
+                displayBoard(gameBoard)
                 
-        p1 = pickPlayer()
-        p2 = ""
+                position = playerChoice(gameBoard)
+                boardPosition(gameBoard, p1marker, position)
+                
+                if winner(gameBoard, p1marker):
+                    displayBoard(gameBoard)
+                    print("Player 1 is the Winner")
+                    gameOn = False
+                else:
+                    if fullBoardCheck(gameBoard):
+                        displayBoard(gameBoard)
+                        print("It's a tie!!")
+                        gameOn = False
+                    else: turn = "Player 2"
+            
+            else:
+                displayBoard(gameBoard)
+                position = playerChoice(gameBoard)
+                boardPosition(gameBoard, p2marker, position)
+                
+                if winner(gameBoard, p2marker):
+                    displayBoard(gameBoard)
+                    print("Player 2 is the Winner!")
+                    gameOn = False
+                else:
+                    if fullBoardCheck(gameBoard):
+                        displayBoard(gameBoard)
+                        print("It's a tie!!")
+                        gameOn = False
+                    else: turn = "Player 1"
         
-        if p1 == "Player 1":
-            p2 = "Player 2"
-        else:
-            p2 = "Player 1"
+        if not replay():
+            break
+                
+                    
+
         
-        playerInput()
         
         
         
